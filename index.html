@@ -323,13 +323,33 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
   background: linear-gradient(90deg, var(--green-dim), var(--green), var(--green-bright));
 }
+.trial-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(40, 211, 102, 0.12);
+  border: 1px solid rgba(40, 211, 102, 0.35);
+  color: var(--green);
+  font-size: 0.82rem; font-weight: 700;
+  padding: 8px 16px; border-radius: 100px;
+  letter-spacing: 0.01em;
+  margin-bottom: 28px;
+}
+.trial-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s infinite;
+}
 .price-big { font-size: 3.2rem; font-weight: 800; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
 .price-per { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+.price-after-trial {
+  font-size: 0.8rem; color: var(--text-muted);
+  margin-top: 6px;
+}
+.price-after-trial strong { color: var(--text); }
 .price-list { list-style: none; display: flex; flex-direction: column; gap: 13px; text-align: left; margin: 32px 0; }
 .price-item { display: flex; align-items: center; gap: 12px; font-size: 0.875rem; color: var(--text); }
 .check {
   width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0;
-  background: rgba(16,183,127,0.14);
+  background: rgba(40, 211, 102, 0.14);
   display: flex; align-items: center; justify-content: center;
   color: var(--green); font-size: 0.65rem;
 }
@@ -611,10 +631,15 @@ footer span { font-size: 0.78rem; color: var(--text-faint); }
       <p class="subhead">Comece grátis por 30 dias. Cancele quando quiser.</p>
     </div>
     <div class="pricing-card">
-      <span class="label" style="display:block; margin-bottom:12px;">Plano Completo</span>
-      <div style="margin-bottom:24px;">
-        <span class="price-big">R$ 19</span><span class="price-per">/mês</span>
+      <div class="trial-badge">
+        <span class="trial-badge-dot" aria-hidden="true"></span>
+        30 dias grátis — sem cartão de crédito
       </div>
+      <span class="label" style="display:block; margin-bottom:12px;">Plano Completo</span>
+      <div style="margin-bottom:6px;">
+        <span class="price-big">R$ 49</span><span class="price-per">,99/mês</span>
+      </div>
+      <p class="price-after-trial">após o período gratuito · <strong>cancele quando quiser</strong></p>
       <ul class="price-list" role="list">
         <li class="price-item"><span class="check" aria-hidden="true">✓</span> Registro ilimitado de gastos via WhatsApp</li>
         <li class="price-item"><span class="check" aria-hidden="true">✓</span> Despesas fixas e alertas de vencimento</li>
@@ -626,7 +651,7 @@ footer span { font-size: 0.78rem; color: var(--text-faint); }
       <a href="#" class="btn-primary" style="width:100%; justify-content:center;">
         Começar 30 dias grátis
       </a>
-      <p class="caption" style="margin-top:14px;">Sem cartão de crédito para começar.</p>
+      <p class="caption" style="margin-top:14px;">Sem cartão de crédito · Cancele a qualquer momento</p>
     </div>
   </div>
 </section>
