@@ -83,9 +83,9 @@ nav {
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  background: var(--green);
 }
-.nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; mix-blend-mode: multiply; }
+
+.nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .nav-logo-text { font-size: 1rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
@@ -220,18 +220,27 @@ nav {
 .bubble .hi { color: var(--green-bright); font-weight: 600; }
 .bubble .muted { color: rgba(255,255,255,0.35); font-size: 0.62rem; }
 @keyframes bbl { to { opacity: 1; transform: none; } }
-.bubble:nth-child(1) { animation-delay: 0.6s; }
-.bubble:nth-child(2) { animation-delay: 1.4s; }
-.bubble:nth-child(3) { animation-delay: 2.6s; }
-.bubble:nth-child(4) { animation-delay: 3.8s; }
+/* explicit delays — no nth-child to avoid typing divs breaking count */
+.b1 { animation-delay: 0.5s; }
+.b2 { animation-delay: 2.4s; }
+.b3 { animation-delay: 4.2s; }
+.b4 { animation-delay: 6.0s; }
+/* typing: aparece, fica um momento, some e colapsa */
 .typing {
   display: flex; align-items: center; gap: 3px;
-  padding: 8px 11px;
   background: var(--wa-bubble-in);
   border-radius: 10px; border-bottom-left-radius: 3px;
   align-self: flex-start;
-  opacity: 0;
-  animation: bbl 0.28s ease 1.95s forwards;
+  opacity: 0; max-height: 0; padding: 0; overflow: hidden;
+  animation: typing-flash 1.0s ease forwards;
+}
+.t1 { animation-delay: 1.3s; }
+.t2 { animation-delay: 5.0s; }
+@keyframes typing-flash {
+  0%   { opacity: 0; max-height: 0;   padding: 0; }
+  12%  { opacity: 1; max-height: 32px; padding: 8px 11px; }
+  72%  { opacity: 1; max-height: 32px; padding: 8px 11px; }
+  100% { opacity: 0; max-height: 0;   padding: 0; }
 }
 .tdot {
   width: 4px; height: 4px; border-radius: 50%;
@@ -461,14 +470,14 @@ footer span { font-size: 0.78rem; color: var(--text-faint); }
               </div>
             </div>
             <div class="wa-chat" aria-hidden="true">
-              <div class="bubble out">
+              <div class="bubble out b1">
                 quanto gastei em junho?
                 <div class="btime">09:41</div>
               </div>
-              <div class="typing">
+              <div class="typing t1">
                 <div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>
               </div>
-              <div class="bubble in">
+              <div class="bubble in b2">
                 Em junho você gastou <span class="hi">R$ 3.247,80</span> 💚<br><br>
                 • Alimentação: R$ 892,30<br>
                 • Transporte: R$ 445,00<br>
@@ -477,14 +486,16 @@ footer span { font-size: 0.78rem; color: var(--text-faint); }
                 Você ficou <span class="hi">R$ 252 abaixo</span> do mês passado ✨
                 <div class="btime">09:41</div>
               </div>
-              <div class="bubble out">
-                registra: almoço 38,50
+              <div class="bubble out b3">
+                Gastei 38,50 com almoço no pix
                 <div class="btime">09:42</div>
               </div>
-              <div class="bubble in">
+              <div class="typing t2">
+                <div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>
+              </div>
+              <div class="bubble in b4">
                 ✅ Registrado!<br>
-                Almoço — <span class="hi">R$ 38,50</span><br>
-                <span class="muted">Alimentação · hoje, 09:42</span>
+                Almoço <span class="hi">R$ 38,50</span> no pix na categoria alimentação
                 <div class="btime">09:42</div>
               </div>
             </div>
