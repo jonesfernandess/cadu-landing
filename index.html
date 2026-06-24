@@ -80,11 +80,12 @@ nav {
 }
 .nav-logo-mark {
   width: 32px; height: 32px;
-  border-radius: 8px;
+  border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
+  background: var(--green);
 }
-.nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; mix-blend-mode: multiply; }
 .nav-logo-text { font-size: 1rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
@@ -251,7 +252,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 /* ───── Features ───── */
 .feat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2px;
   background: var(--border);
   border-radius: 18px;
@@ -380,7 +381,7 @@ footer span { font-size: 0.78rem; color: var(--text-faint); }
   .hero-grid { grid-template-columns: 1fr; padding-top: 90px; text-align: center; }
   .hero-eyebrow, .hero-actions, .hero-stats { justify-content: center; }
   .phone-wrap { order: -1; }
-  .feat-grid { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr; border-radius: 14px; }
   .testi-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   footer { flex-direction: column; text-align: center; }
