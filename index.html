@@ -22,7 +22,7 @@
   --wa-bubble-out: #0A4532;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   background: var(--bg);
@@ -31,6 +31,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* ───── Typography ───── */
@@ -107,8 +108,8 @@ nav {
   grid-template-columns: 1fr 420px;
   gap: 56px;
   align-items: center;
-  min-height: 100vh;
-  padding-top: 72px;
+  padding-top: 120px;
+  padding-bottom: 80px;
 }
 .hero-copy { display: flex; flex-direction: column; gap: 28px; }
 .hero-eyebrow { display: flex; align-items: center; gap: 10px; }
@@ -390,8 +391,9 @@ footer span { font-size: 0.78rem; color: var(--text-faint); }
 
 /* ───── Responsive ───── */
 @media (max-width: 800px) {
-  .hero-grid { grid-template-columns: 1fr; padding-top: 90px; text-align: center; }
+  .hero-grid { grid-template-columns: 1fr; padding-top: 90px; padding-bottom: 60px; text-align: center; }
   .hero-eyebrow, .hero-actions, .hero-stats { justify-content: center; }
+  .phone-wrap { display: none; }
   .feat-grid { grid-template-columns: 1fr; border-radius: 14px; }
   .testi-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
